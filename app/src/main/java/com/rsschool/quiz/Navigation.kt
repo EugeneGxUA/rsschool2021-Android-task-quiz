@@ -18,5 +18,5 @@ interface Navigation {
 
     fun finishScreen(args: Bundle)
 
-    fun pop()
+    fun pop(id : Int)
 }

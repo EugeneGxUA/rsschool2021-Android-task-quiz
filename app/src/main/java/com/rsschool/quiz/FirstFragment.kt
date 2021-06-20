@@ -24,7 +24,7 @@ class FirstFragment : BaseFragment() {
     override fun provideStatusBarColor(): Int = R.color.deep_orange_100_dark
 
     override fun provideNext() {
-        navigationClickListener?.navigateToSecond(Bundle(5).apply {
+        navigationClickListener?.navigateToSecond(Bundle(10).apply {
            putString(FIRST_FRAGMENT_KEY, selectedText)
         })
     }

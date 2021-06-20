@@ -6,9 +6,10 @@ import androidx.fragment.app.Fragment
 class FiveFragment : BaseFragment() {
 
     companion object {
-        fun getInstance(args: Bundle): Fragment {
+        fun getInstance(args: Bundle, selected : Int): Fragment {
             return FiveFragment().apply {
                 arguments = args
+                arguments?.putInt(FIVE_FRAGMENT, selected)
             }
         }
 

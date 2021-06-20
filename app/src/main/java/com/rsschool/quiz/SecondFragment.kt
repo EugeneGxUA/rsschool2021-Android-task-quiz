@@ -6,9 +6,10 @@ import androidx.fragment.app.Fragment
 class SecondFragment : BaseFragment() {
 
     companion object {
-        fun getInstance(args : Bundle) : Fragment {
+        fun getInstance(args : Bundle, selected : Int) : Fragment {
             return SecondFragment().apply {
                 arguments = args
+                arguments?.putInt(SECOND_FRAGMENT_KEY, selected)
             }
         }
 

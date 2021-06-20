@@ -9,6 +9,12 @@ class MainActivity : AppCompatActivity(), Navigation {
 
     private lateinit var binding : ActivityMainBinding
 
+    private var firstCheckedId = -1
+    private var secCheckedId = -1
+    private var thCheckedId = -1
+    private var fourCheckedId = -1
+    private var fiveCheckedId = -1
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -24,28 +30,28 @@ class MainActivity : AppCompatActivity(), Navigation {
 
     private fun toSecondFragment(args: Bundle) {
         val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.container, SecondFragment.getInstance(args))
+        transaction.replace(R.id.container, SecondFragment.getInstance(args, secCheckedId))
         transaction.addToBackStack(null)
         transaction.commit()
     }
 
     private fun toThirdFragment(args: Bundle) {
         val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.container, ThirdFragment.getInstance(args))
+        transaction.replace(R.id.container, ThirdFragment.getInstance(args, thCheckedId))
         transaction.addToBackStack(null)
         transaction.commit()
     }
 
     private fun toFourthFragment(args: Bundle) {
         val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.container, FourthFragment.getInstance(args))
+        transaction.replace(R.id.container, FourthFragment.getInstance(args, fourCheckedId))
         transaction.addToBackStack(null)
         transaction.commit()
     }
 
     private fun toFiveFragment(args: Bundle) {
         val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.container, FiveFragment.getInstance(args))
+        transaction.replace(R.id.container, FiveFragment.getInstance(args, fiveCheckedId))
         transaction.addToBackStack(null)
         transaction.commit()
     }
@@ -59,10 +65,6 @@ class MainActivity : AppCompatActivity(), Navigation {
 
     override fun navigateToFirstInclusive() {
         supportFragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
-//        val transaction = supportFragmentManager.beginTransaction()
-//
-//        transaction.replace(R.id.container, FirstFragment.getInstance())
-//        transaction.commit()
     }
 
     override fun navigateOnFirst() {
@@ -89,7 +91,15 @@ class MainActivity : AppCompatActivity(), Navigation {
         toResultFragment(args)
     }
 
-    override fun pop() {
+    override fun pop(id : Int) {
+        when (supportFragmentManager.fragments.last()) {
+            is SecondFragment -> secCheckedId = id
+            is ThirdFragment -> thCheckedId = id
+            is FourthFragment -> fourCheckedId = id
+            is FiveFragment -> fiveCheckedId = id
+        }
+
+
         supportFragmentManager.popBackStack()
     }
 }

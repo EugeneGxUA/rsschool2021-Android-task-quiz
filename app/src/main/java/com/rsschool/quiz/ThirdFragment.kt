@@ -6,11 +6,10 @@ import androidx.fragment.app.Fragment
 class ThirdFragment : BaseFragment() {
 
     companion object {
-        fun getInstance(args : Bundle) : Fragment {
+        fun getInstance(args : Bundle, selected : Int) : Fragment {
             return ThirdFragment().apply {
-                arguments = args.apply {
-
-                }
+                arguments = args
+                arguments?.putInt(THIRD_FRAGMENT, selected)
             }
         }
 
