@@ -1,4 +1,4 @@
-package com.rsschool.quiz
+package com.rsschool.quiz.fragments
 
 import android.content.Context
 import android.os.Bundle
@@ -11,6 +11,8 @@ import androidx.appcompat.view.ContextThemeWrapper
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import com.rsschool.quiz.Navigation
+import com.rsschool.quiz.R
 import com.rsschool.quiz.databinding.FragmentQuizBinding
 import com.rsschool.quiz.mock.Mock
 
@@ -34,10 +36,9 @@ abstract class BaseFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        //TODO -> READ about it
         val contextThemeWrapper: Context = ContextThemeWrapper(activity, provideThemeColor())
-
         val localInflater = inflater.cloneInContext(contextThemeWrapper)
-
         activity?.window?.statusBarColor =
             ContextCompat.getColor(requireContext(), provideStatusBarColor())
 

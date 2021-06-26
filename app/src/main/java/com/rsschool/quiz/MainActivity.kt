@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.FragmentManager
 import com.rsschool.quiz.databinding.ActivityMainBinding
+import com.rsschool.quiz.fragments.*
 
 class MainActivity : AppCompatActivity(), Navigation {
 
@@ -98,7 +99,6 @@ class MainActivity : AppCompatActivity(), Navigation {
             is FourthFragment -> fourCheckedId = id
             is FiveFragment -> fiveCheckedId = id
         }
-
 
         supportFragmentManager.popBackStack()
     }

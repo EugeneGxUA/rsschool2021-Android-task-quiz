@@ -1,4 +1,4 @@
-package com.rsschool.quiz
+package com.rsschool.quiz.fragments
 
 import android.content.Context
 import android.content.Intent
@@ -7,6 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.rsschool.quiz.MainActivity
+import com.rsschool.quiz.Navigation
+import com.rsschool.quiz.R
 import com.rsschool.quiz.databinding.FragmentResultBinding
 import com.rsschool.quiz.mock.Mock
 
@@ -50,13 +53,15 @@ class ResultFragment : Fragment() {
         binding?.tvResult?.text = getString(R.string.result, checkAnswers())
 
         binding?.ivShare?.setOnClickListener {
-            startActivity(Intent().apply {
+            val intent = Intent().apply {
                 action = Intent.ACTION_SEND
                 type = "text/plain"
 
                 val message: String = assembleMessage()
                 putExtra(Intent.EXTRA_TEXT, message)
-            })
+                putExtra(Intent.EXTRA_SUBJECT, getString(R.string.quiz_result_title))
+            }
+            startActivity(Intent.createChooser(intent, "Quiz results"))
         }
 
         binding?.ivStart?.setOnClickListener {

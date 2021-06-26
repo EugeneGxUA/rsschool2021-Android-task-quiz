@@ -1,7 +1,8 @@
-package com.rsschool.quiz
+package com.rsschool.quiz.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
+import com.rsschool.quiz.R
 
 class SecondFragment : BaseFragment() {
 

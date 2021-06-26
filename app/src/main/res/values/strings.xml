@@ -6,5 +6,6 @@
     <string name="submit">Submit</string>
     <string name="title">Question %1$d</string>
     <string name="result">Your result: %1$d %%</string>
+    <string name="quiz_result_title">Quiz results</string>
 
 </resources>
