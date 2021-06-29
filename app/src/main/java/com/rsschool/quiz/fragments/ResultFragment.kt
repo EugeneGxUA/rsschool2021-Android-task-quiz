@@ -12,6 +12,7 @@ import com.rsschool.quiz.Navigation
 import com.rsschool.quiz.R
 import com.rsschool.quiz.databinding.FragmentResultBinding
 import com.rsschool.quiz.mock.Mock
+import kotlin.system.exitProcess
 
 class ResultFragment : Fragment() {
 
@@ -72,6 +73,7 @@ class ResultFragment : Fragment() {
 
         binding?.ivClose?.setOnClickListener {
             requireActivity().finish()
+            exitProcess(0)
         }
     }
 
